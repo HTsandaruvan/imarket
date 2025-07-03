@@ -16,6 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_fonts: ^4.0.3
   firebase_core: ^2.24.0
+  fl_chart: ^1.0.0
   # Add other Firebase dependencies as needed (auth, firestore, etc.)
 
 dev_dependencies:

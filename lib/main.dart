@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:imarket/screens/loading_screen.dart';
-import 'package:imarket/screens/user_profile_screen.dart';
+import 'package:flutter/services.dart';
+import 'package:imarket/screens/home_screen.dart';
+import 'package:imarket/screens/messages/messages_screen.dart';
+import 'package:imarket/screens/products/products_screen.dart';
+import 'package:imarket/screens/signup/signup_screen.dart';
+import 'screens/splash/splash_screen.dart';
+import 'screens/login/login_screen.dart';
+import 'screens/dashboard/dashboard_screen.dart';
+import 'screens/welcome/welcome_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Set preferred orientations
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
   runApp(const MyApp());
 }
 
@@ -12,25 +27,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'iMarket',
+      title: 'MyApp',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: 'Poppins',
-        appBarTheme: const AppBarTheme(
-          elevation: 0,
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          iconTheme: IconThemeData(color: Colors.black),
-          titleTextStyle: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        fontFamily: 'Roboto',
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const LoadingScreen(),
-      routes: {'/profile': (context) => const UserProfileScreen()},
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/welcome': (context) => const WelcomeScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/dashboard': (context) => const UserProfileScreen(),
+        '/signup': (context) => const SignupScreen(),
+        '/products': (context) => const ProductsScreen(),
+        '/messages': (context) => const MessagesScreen(),
+        '/home': (context) => const HomeScreen(),
+      },
     );
   }
 }
