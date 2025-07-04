@@ -126,16 +126,7 @@ class SuperAdminDashboard extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              
-              // Stats Cards
-              // Wrap(
-              //   spacing: 16,
-              //   runSpacing: 16,
-              //   children: statData
-              //     .map((item) => _buildStatCard(item['icon'], item['label'], item['value']))
-              //     .toList(),
-              // ),
+            children: [             
 
               Wrap(
                 spacing: 16,
@@ -299,84 +290,73 @@ class SuperAdminDashboard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 16),
-              // Container(
-              //   height: 150,
-              //   width: double.infinity,
-              //   decoration: BoxDecoration(
-              //     border: Border.all(color: Colors.blue.shade100),
-              //     borderRadius: BorderRadius.circular(12),
-              //   ),
-              //   child: const Center(
-              //     child: Text('Sales Chart need to show here'),
-              //   ),
-              // ),
 
-Container(
-  height: 200,
-  padding: const EdgeInsets.all(20),
-  decoration: BoxDecoration(
-    border: Border.all(color: Colors.blue.shade100),
-    borderRadius: BorderRadius.circular(12),
-  ),
-  child: LineChart(
-    LineChartData(
-      minY: 0,
-      gridData: FlGridData(show: false),
-      titlesData: FlTitlesData(
-        bottomTitles: AxisTitles(
-          sideTitles: SideTitles(
-            showTitles: true,
-            getTitlesWidget: (value, meta) {
-              // Customize X-axis labels
-              if (value.toInt() >= 0 && value.toInt() < 7) {
-                return Text(
-                  ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][value.toInt()],
-                  style: const TextStyle(fontSize: 10),
-                );
-              } else {
-                return const SizedBox.shrink();
-              }
-            },
-          ),
-        ),
-        leftTitles: AxisTitles(
-          sideTitles: SideTitles(
-            showTitles: true,
-            reservedSize: 28,
-            getTitlesWidget: (value, meta) => Text(
-              '${value.toInt()}',
-              style: const TextStyle(fontSize: 10),
-            ),
-          ),
-        ),
-        rightTitles: AxisTitles(
-          sideTitles: SideTitles(showTitles: false),
-        ),
-        topTitles: AxisTitles(
-          sideTitles: SideTitles(showTitles: false),
-        ),
-      ),
-      borderData: FlBorderData(show: false),
-      lineBarsData: [
-        LineChartBarData(
-          isCurved: true,
-          color: Colors.blue,
-          barWidth: 3,
-          spots: [
-            FlSpot(0, 50),
-            FlSpot(1, 60),
-            FlSpot(2, 55),
-            FlSpot(3, 70),
-            FlSpot(4, 65),
-            FlSpot(5, 80),
-            FlSpot(6, 75),
-          ],
-          dotData: FlDotData(show: false),
-        ),
-      ],
-    ),
-  ),
-),
+              Container(
+                height: 200,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.blue.shade100),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: LineChart(
+                  LineChartData(
+                    minY: 0,
+                    gridData: FlGridData(show: false),
+                    titlesData: FlTitlesData(
+                      bottomTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: true,
+                          getTitlesWidget: (value, meta) {
+                            // Customize X-axis labels
+                            if (value.toInt() >= 0 && value.toInt() < 7) {
+                              return Text(
+                                ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][value.toInt()],
+                                style: const TextStyle(fontSize: 10),
+                              );
+                            } else {
+                              return const SizedBox.shrink();
+                            }
+                          },
+                        ),
+                      ),
+                      leftTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: true,
+                          reservedSize: 28,
+                          getTitlesWidget: (value, meta) => Text(
+                            '${value.toInt()}',
+                            style: const TextStyle(fontSize: 10),
+                          ),
+                        ),
+                      ),
+                      rightTitles: AxisTitles(
+                        sideTitles: SideTitles(showTitles: false),
+                      ),
+                      topTitles: AxisTitles(
+                        sideTitles: SideTitles(showTitles: false),
+                      ),
+                    ),
+                    borderData: FlBorderData(show: false),
+                    lineBarsData: [
+                      LineChartBarData(
+                        isCurved: true,
+                        color: Colors.blue,
+                        barWidth: 3,
+                        spots: [
+                          FlSpot(0, 50),
+                          FlSpot(1, 60),
+                          FlSpot(2, 55),
+                          FlSpot(3, 70),
+                          FlSpot(4, 65),
+                          FlSpot(5, 80),
+                          FlSpot(6, 75),
+                        ],
+                        dotData: FlDotData(show: false),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
 
 
 
@@ -450,75 +430,75 @@ Container(
 
 
 
-  static Widget _buildStatCard(IconData icon, String label, String value) {
-    return Container(
-      width: 100,
-      height: 140,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: const Color(0xFFF9FAFB),
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.04),
-            blurRadius: 6,
-            offset: const Offset(0, 3),
-          )
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Icon(icon, size: 30, color: Colors.blue),
-          Text(
-            value,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            label,
-            style: const TextStyle(color: Colors.grey),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
-    );
-  }
+  // static Widget _buildStatCard(IconData icon, String label, String value) {
+  //   return Container(
+  //     width: 100,
+  //     height: 140,
+  //     padding: const EdgeInsets.all(16),
+  //     decoration: BoxDecoration(
+  //       color: const Color(0xFFF9FAFB),
+  //       borderRadius: BorderRadius.circular(12),
+  //       boxShadow: [
+  //         BoxShadow(
+  //           color: Colors.black.withOpacity(0.04),
+  //           blurRadius: 6,
+  //           offset: const Offset(0, 3),
+  //         )
+  //       ],
+  //     ),
+  //     child: Column(
+  //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //       children: [
+  //         Icon(icon, size: 30, color: Colors.blue),
+  //         Text(
+  //           value,
+  //           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+  //         ),
+  //         Text(
+  //           label,
+  //           style: const TextStyle(color: Colors.grey),
+  //           textAlign: TextAlign.center,
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
 
-  static Widget _buildActionCard(IconData icon, String title, String subtitle) {
-    return Container(
-      width: 160,
-      height: 140,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: const Color(0xFFF9FAFB),
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Icon(icon, size: 30, color: Colors.lightBlue),
-          Text(
-            title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
-          ),
-          Text(
-            subtitle,
-            style: const TextStyle(color: Colors.grey),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
-    );
-  }
+  // static Widget _buildActionCard(IconData icon, String title, String subtitle) {
+  //   return Container(
+  //     width: 160,
+  //     height: 140,
+  //     padding: const EdgeInsets.all(16),
+  //     decoration: BoxDecoration(
+  //       color: const Color(0xFFF9FAFB),
+  //       borderRadius: BorderRadius.circular(12),
+  //       boxShadow: [
+  //         BoxShadow(
+  //           color: Colors.black.withOpacity(0.05),
+  //           blurRadius: 8,
+  //           offset: const Offset(0, 4),
+  //         ),
+  //       ],
+  //     ),
+  //     child: Column(
+  //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //       children: [
+  //         Icon(icon, size: 30, color: Colors.lightBlue),
+  //         Text(
+  //           title,
+  //           style: const TextStyle(fontWeight: FontWeight.bold),
+  //           textAlign: TextAlign.center,
+  //         ),
+  //         Text(
+  //           subtitle,
+  //           style: const TextStyle(color: Colors.grey),
+  //           textAlign: TextAlign.center,
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
 
   static Widget _buildListCard(String title, List<String> items) {

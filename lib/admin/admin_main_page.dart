@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:imarket/admin/super_broadcast.dart';
-import 'package:imarket/admin/super_dashbard.dart';
+//import 'package:imarket/admin/super_dashbard.dart';
 import 'package:imarket/user/dashboard.dart';
+import 'package:imarket/user/edit_profile_page.dart';
+import 'package:imarket/user/help_support_page.dart';
+import 'package:imarket/user/my_connections_page.dart';
+import 'package:imarket/user/notifications_page.dart';
+import 'package:imarket/user/privacy_security_page.dart';
 
 class AdminMainPage extends StatefulWidget {
   final int initialIndex;
@@ -18,12 +23,15 @@ class _AdminMainPageState extends State<AdminMainPage> {
   late int currentIndex;
 
   final List<Widget> pages = [
-    DashboardPage(),
-    Placeholder(), // Search Page (if needed)
-    Placeholder(), // Search Page (if needed)
-    BroadcastPage(),
-    SuperAdminDashboard(),
-    Placeholder(), // Profile Page (if needed)
+     DashboardPage(),
+    PrivacySecurityPage(),
+    HelpSupportPage(),
+    //NotificationsPage(),
+    //BroadcastPage(),
+    MyConnectionsPage(),
+    //SuperAdminDashboard(),
+    NotificationsPage(),
+    EditProfilePage(),
   ];
 
   @override

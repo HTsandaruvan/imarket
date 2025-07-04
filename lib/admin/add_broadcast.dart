@@ -44,9 +44,10 @@ class _AddBroadcastPageState extends State<AddBroadcastPage> {
         appBar: AppBar(
           automaticallyImplyLeading: true,
           backgroundColor: Colors.white,
-          title: const Text(
-            'Add New Broadcast Message',
-            style: TextStyle(color: Colors.black),
+          title: Text(
+            widget.editData != null ? 'Edit Broadcast Message' : 'Add New Broadcast Message',
+            //'Add New Broadcast Message',
+            style: const TextStyle(color: Colors.black),
           ),
           iconTheme: const IconThemeData(color: Colors.black),
         ),
